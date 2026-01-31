@@ -2,7 +2,7 @@ console.log('Chaliye suru krte hai');
 
 //object create
 
-const rerctangle = {
+const rectangle = {
     length: 1,
     breadth: 2,
 
