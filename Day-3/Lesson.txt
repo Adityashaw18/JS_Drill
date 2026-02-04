@@ -1,0 +1,8 @@
+Info about built in objects in js.
+
+Math object :-
+Math object has many function always refer mdn for it.
+today i only scraped few functions which are 
+Math.random(), Math.PI, Math.max(put set of numbers to find max), Math.min(put set of numbers to find min), Math.round and Math.abs.
+
+String :-
