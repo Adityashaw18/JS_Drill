@@ -91,3 +91,59 @@ console.log('Rom Rom Bhaiyo!');
 // console.log(combine);
 // let sliced = combine.slice(2,3);
 // console.log(sliced);
+
+//Spread operator [...]
+
+// let combined = [...first,'a', false,...second,`b`,true];
+// console.log(combined);
+
+// //copy kaise kre
+// let another = [...combined];
+
+// let arr = [10,20,30,40,50,60,70,80,90];
+// for(let value of arr){
+//     console.log(value);
+// }
+// arr.forEach(function(number){
+//     console.log(number);
+// });
+
+
+//joining arrays
+
+// let nums = [10,20,30,40,50,60,70,80,90];
+// const joined = nums.join(',');
+
+// console.log(joined);
+
+// let message = 'This is my first messsage';
+// let parts = message.split(' ');
+// console.log(parts);
+
+// let number = [40,5,10,4];
+// number.sort();
+// console.log(number);
+
+// number.reverse();
+// console.log(number);
+
+// let number =[1,2,-1,-4];
+// let filtered = number.filter(value =>  value >= 0)
+// console.log(filtered);
+
+// let numbers = [7,8,9,10];
+// let items = numbers.map(function(value){
+//     return 'student_no' + value;
+// })
+// console.log(items);
+
+//Mapping with objects
+
+let number =[1,2,-6,-9];
+let filtered = number.filter(value => value >= 0);
+
+let items = filtered.map(function(num){
+    let obj = {value: num};
+    return obj;
+})
+console.log(items);
