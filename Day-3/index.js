@@ -1,4 +1,4 @@
-// console.log('Rom Rom Bhaiyo!');
+console.log('Rom Rom Bhaiyo!');
 // //primitive datatype
 // let lastname = 'Shaw';
 // //object
@@ -75,4 +75,19 @@
 // num.splice(2, 1);
 // console.log(num);
 
-let numbers
+// let numbers = [1,2,3,4,5,6,7];
+// let numbers2 = numbers;
+
+// // numbers=[];
+// // numbers.length = 0;
+// // numbers.splice(0, numbers.length);
+
+// console.log(numbers);
+
+// let first = [1,2,3];
+// let second = [4,5,6];
+
+// let combine= first.concat(second);
+// console.log(combine);
+// let sliced = combine.slice(2,3);
+// console.log(sliced);
