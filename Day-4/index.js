@@ -74,21 +74,31 @@ console.log("Kya Haal Bhai ke!");
 
 //GETTER SETTER
 
-// let person = { 
-// 	fName : 'Aditya',
-// 	lName : 'Shaw',
-// 	get fullname() {
-// 	return `${person.fName} ${person.lName}`;
-// 	},
-// 	set fullname(value) {
-// 		let parts = value.split(' ');
-// 		this.fName = parts[0];
-// 		this.lName = parts[1];
-		
-// 	}
-// };
+let person = { 
+	fName : 'Aditya',
+	lName : 'Shaw',
+	get fullname() {
+	return `${person.fName} ${person.lName}`;
+	},
+	set fullname(value) {
+        if(typeof value !== String){
+            throw new Error("you have not sent a string");
+        }
+		let parts = value.split(' ');
+		this.fName = parts[0];
+		this.lName = parts[1];
+	}
+};
 
 // // console.log(person.fullname);
 
 // person.fullname = 'Rahul kumar';
 // console.log(person.fullname);
+
+//try
+try{
+    person.fullname = true;
+}catch(e){
+    alert(e);
+}
+console.log(person.fullname);
