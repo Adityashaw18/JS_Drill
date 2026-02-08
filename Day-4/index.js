@@ -74,21 +74,21 @@ console.log("Kya Haal Bhai ke!");
 
 //GETTER SETTER
 
-let person = { 
-	fName : 'Aditya',
-	lName : 'Shaw',
-	get fullname() {
-	return `${person.fName} ${person.lName}`;
-	},
-	set fullname(value) {
-        if(typeof value !== String){
-            throw new Error("you have not sent a string");
-        }
-		let parts = value.split(' ');
-		this.fName = parts[0];
-		this.lName = parts[1];
-	}
-};
+// let person = { 
+// 	fName : 'Aditya',
+// 	lName : 'Shaw',
+// 	get fullname() {
+// 	return `${person.fName} ${person.lName}`;
+// 	},
+// 	set fullname(value) {
+//         if(typeof value !== String){
+//             throw new Error("you have not sent a string");
+//         }
+// 		let parts = value.split(' ');
+// 		this.fName = parts[0];
+// 		this.lName = parts[1];
+// 	}
+// };
 
 // // console.log(person.fullname);
 
@@ -96,9 +96,21 @@ let person = {
 // console.log(person.fullname);
 
 //try
-try{
-    person.fullname = true;
-}catch(e){
-    alert(e);
-}
-console.log(person.fullname);
+// try{
+//     person.fullname = true;
+// }catch(e){
+//     alert(e);
+// }
+// console.log(person.fullname);
+
+
+let arr = [1,2,3,4];
+// let total = 0;
+
+// for(let value of arr)
+// 	total = total + value;
+// console.log(total);
+
+let totalSum = arr.reduce((accumulator,currentValue) => accumulator + currentValue);
+
+console.log(totalSum);
