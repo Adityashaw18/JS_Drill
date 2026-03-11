@@ -19,7 +19,7 @@ currentTab.classList.add("current-tab");
 
 function switchTab (clickedTab) {
     if(clickedTab != currentTab){
-        currentTab.classList.remove("current-tab");
+        currentTab.classList.remove("current-tab"); 
         currentTab = clickedTab;
         currentTab.classList.add("current-tab");
 
