@@ -22,21 +22,21 @@
             <!-- grant access to user location -->
             <div class="sub-container grant-location-container">
                 <img src="./images/location.png" width="80" height="80" loading="lazy">
-                <p>grant location access</p>
+                <p>Grant Location Access</p>
                 <p>Allow Access to get Weather information</p>
                 <button class="btn" data-grantAccess>Grant Access</button>
             </div>
 
             <!-- Search form -->
             <form action="" class="form-container" data-searchForm>
-                <input placeholder="Search for City..." data-searchInput>
+                <input type="text" placeholder="Search for City..." data-searchInput name="text">
                 <button class="btn" type="submit">
                     <img src="./images/search.png" width="20" height="20" loading="lazy">
                 </button>
             </form>
 
             <!-- Loading Screen container -->
-            <div class="loading-container">
+            <div class="sub-container loading-container">
                 <img src="./images/loading.gif" width="150" height="150">
                 <p>Loading...</p>
             </div>
@@ -53,7 +53,7 @@
                 <!-- weatherIcon -->
                 <img data-weatherIcon>
                 <!-- Temperature -->
-                <p data-temp></p>
+                <p data-temp>21 °C</p>
 
                 <!-- 3 cards - parameters -->
                  <div class="parameter-container">
@@ -61,7 +61,7 @@
                     <!-- card 1 -->
                     <div class="parameter">
                         <img src="./images/wind.png" alt="">
-                        <p>wind speed</p>
+                        <p>windspeed</p>
                         <p data-windspeed></p>
                     </div>
 

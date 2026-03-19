@@ -3,8 +3,6 @@ const searchTab = document.querySelector("[data-searchWeather]");
 const userContainer = document.querySelector(".weather-container");
 const grantAccessContainer = document.querySelector(".grant-location-container");
 
-// const accessData = document.querySelector("[data-grantAccess]");
-
 const searchForm = document.querySelector("[data-searchForm]");
 
 const loadingScreen = document.querySelector(".loading-container");
@@ -52,7 +50,7 @@ searchTab.addEventListener("click", () => {
 });
 
 function getfromSessionStorage () {
-    const localCoordinates = sessionStorage.getItem("user-coordiates");
+    const localCoordinates = sessionStorage.getItem("user-coordinates");
     if(!localCoordinates) {
         // agar local coordinates nhi mile
         grantAccessContainer.classList.add("active");
@@ -70,10 +68,12 @@ async function fetchUserWeatherInfo (coordinates) {
     //make loader visible
     loadingScreen.classList.add("active");
 
-
+// https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
     //API call
     try{
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?let=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`); 
+        // const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?let=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
+        // const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=524901&appid=${API_KEY}&units=metric`);
         const data = await response.json();
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
@@ -103,18 +103,17 @@ function renderweatherInfo(weatherInfo) {
     // fetch value from weather weatherInfo object and put it UI elements
     // https://flagcdn.com/16x12/
     cityName.innerText = weatherInfo?.name;
-    // countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
-    countryIcon.src = `https://flagcdn.com/16x12/in.png`;
+    countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
+    // countryIcon.src = `https://flagcdn.com/en/{weatherInfo?.sys?.country.toLowerCase()}.json`;
 
 
     desc.innerText = weatherInfo?.weather?.[0]?.description;
     weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
      
-    temp.innerText = weatherInfo?.main?.temp;
-    windspeed.innerText = weatherInfo?.wind?.speed;
-    humidity.innerText = weatherInfo?.main?.humidity;
-    cloudiness.innerText = weatherInfo?.clouds?.all;
-
+    temp.innerText = `${weatherInfo?.main?.temp} °C`;
+    windspeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
+    humidity.innerText = `${weatherInfo?.main?.humidity} %`;
+    cloudiness.innerText = `${weatherInfo?.clouds?.all} %`;
 }
 
 function getLocation () {
@@ -132,7 +131,7 @@ function showPosition(position) {
         lon: position.coords.longitude,
     }
 
-    sessionStorage.setItem("user-coordiates",JSON.stringify(userCoordinates));
+    sessionStorage.setItem("user-coordinates",JSON.stringify(userCoordinates));
     fetchUserWeatherInfo(userCoordinates);
 }
 
@@ -160,7 +159,7 @@ async function fetchSearchWeatherInfo(city) {
     grantAccessContainer.classList.remove("active");
 // add fetch from the other downloaded file
     try {
-        const response = await fetchfetch(`https://api.openweathermap.org/data/2.5/weather?let=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?let=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
         const data = await response.json();
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
